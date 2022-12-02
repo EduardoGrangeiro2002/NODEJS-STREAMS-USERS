@@ -35,7 +35,7 @@ export class MassCreateUser implements IMassCreateUser {
                 let counter = 0;
                 for await (const data of source) {
                     const status = await makeRequest(data);
-                    log(`processed ${++counter} items...`);
+                    log(`processed ${++counter} data...`);
                     if(status !== 201) {
                         throw new Error(`oops! reached rate limit, stupid! - status ${status}`);                
                     }
