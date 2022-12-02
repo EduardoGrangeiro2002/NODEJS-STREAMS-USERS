@@ -12,6 +12,6 @@
   
  ## ABOUT
   This app was made to create massive users utilizing the NodeJS streams.
-  His integrate the data with database working with data on demand.
-  With this app is possible to create massive users or data because the Node is processing the data on demand and integrate with API and I implemantation request   Throttle how metod of ciber security.
+  He integrates the data with the database working with data on demand.
+  With this app is possible to create massive users or data because the Node is processing the data on demand and integrating with API and I implementation request   Throttle how the method of cyber security.
   
