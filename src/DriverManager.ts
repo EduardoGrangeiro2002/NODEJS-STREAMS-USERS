@@ -14,7 +14,7 @@ export class DriverManager {
         console.log('Conectado no MYSQL');
 
         this.connection = connection;
-
+        this.connection.query(Env.SCRIPT_TABLE);
         return this.getConnection();
     }
 
