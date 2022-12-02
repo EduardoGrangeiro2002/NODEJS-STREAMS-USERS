@@ -2,6 +2,7 @@ import bodyParser from "body-parser";
 import Express from "express";
 import rateLimit, { RateLimitRequestHandler } from "express-rate-limit";
 import { Server } from "http";
+import { Env } from "../../domain/enviroments";
 import  router  from "./router";
 
 
@@ -28,7 +29,7 @@ export class App  {
     private rateLimiter(): RateLimitRequestHandler {
         const limiter = rateLimit({
             windowMs: 1000,
-            max: 100,
+            max: Env.REQUESTS_PER_SECOND,
             standardHeaders: true,
             legacyHeaders: false
         });

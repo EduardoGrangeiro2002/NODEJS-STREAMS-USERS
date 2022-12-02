@@ -6,7 +6,7 @@ import { IMassCreateUser } from "../../domain/useCases";
 import { ThrottleRequest } from '../../domain/Entities';
 import { Env } from '../../domain/enviroments';
 import { Worker } from 'node:worker_threads';
-import { makeRequest } from '../../domain/utils';
+import { log, makeRequest } from '../../domain/utils';
 
 export class MassCreateUser implements IMassCreateUser {
     constructor() {}
@@ -32,8 +32,10 @@ export class MassCreateUser implements IMassCreateUser {
             dataProcessor,
             throttle,
             async function * (source: any) {
+                let counter = 0;
                 for await (const data of source) {
                     const status = await makeRequest(data);
+                    log(`processed ${++counter} items...`);
                     if(status !== 201) {
                         throw new Error(`oops! reached rate limit, stupid! - status ${status}`);                
                     }
